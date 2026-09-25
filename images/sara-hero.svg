@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 1000" width="750" height="1000" role="img" aria-label="サラ／3Dアニメ風メインビジュアル">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="750" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FF6FA8"/><stop offset="1" stop-color="#2A1B4D"/>
+    </linearGradient>
+  </defs>
+  <rect width="750" height="1000" fill="url(#g)"/>
+  <rect x="7" y="7" width="736" height="986" rx="16" fill="none" stroke="#ffffff" stroke-opacity="0.4" stroke-width="2" stroke-dasharray="10 9"/>
+  <g fill="#ffffff" fill-opacity="0.26">
+    <circle cx="375" cy="380" r="82"/>
+    <path d="M202 920 a173 198 0 0 1 346 0 z"/>
+  </g>
+  <g font-family="Hiragino Sans, Noto Sans JP, Helvetica, Arial, sans-serif" text-anchor="middle" fill="#ffffff">
+    <text x="375" y="800" font-size="41" font-weight="700">サラ／3Dアニメ風メインビジュアル</text>
+    <text x="375" y="851" font-size="27" fill-opacity="0.8">縦位置・バストアップ〜全身　※差し替え</text>
+  </g>
+</svg>

@@ -1,0 +1,899 @@
+@charset "UTF-8";
+
+/* ============================================================
+   AIREN ／ AIコンパニオン LP（収益化MVP版）
+   Design tokens
+   Night Violet × Sara Pink / スマホ縦型・3Dアニメ風ビジュアル前提
+   ============================================================ */
+:root{
+  /* 背景：夜の紫紺。3Dアニメ調のビジュアルが最も映えるトーン */
+  --night:      #120C22;
+  --night-2:    #1B1132;
+  --night-3:    #241840;
+  --night-4:    #2E1F4F;
+
+  /* アクセント：サラの髪色から起こしたピンク＋ラベンダー */
+  --pink:       #FF6FA8;
+  --pink-2:     #FF97C2;
+  --pink-deep:  #E14A88;
+  --violet:     #9B7BFF;
+  --violet-2:   #C4AEFF;
+
+  /* テキスト */
+  --text:       #F5F1FB;
+  --text-2:     #C7BCDE;
+  --text-3:     #948AAE;
+  --ink:        #241840;   /* 明るい面に乗せる文字 */
+  --ink-2:      #5C5177;
+
+  /* 明るい面（チャットUI・カード） */
+  --paper:      #FFFFFF;
+  --paper-2:    #F4F0FB;
+  --paper-3:    #E8E1F5;
+
+  --line:       rgba(255,255,255,0.13);
+  --line-2:     rgba(255,255,255,0.08);
+
+  --container:  600px;
+  --gutter:     20px;
+  --radius:     18px;
+
+  --ff-ja:      "Noto Sans JP", "Hiragino Sans", sans-serif;
+  --ff-round:   "Zen Maru Gothic", "Noto Sans JP", "Hiragino Sans", sans-serif;
+  --ff-en:      "Outfit", "Noto Sans JP", sans-serif;
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  padding:0 0 84px;              /* 追従CTAぶんの余白 */
+  font-family:var(--ff-ja);
+  font-size:15px;
+  line-height:1.9;
+  color:var(--text);
+  background:var(--night);
+  -webkit-font-smoothing:antialiased;
+}
+
+img{ display:block; max-width:100%; height:auto; }
+a{ color:inherit; text-decoration:none; }
+h1,h2,h3,h4,p,ul,ol,figure,dl,dd{ margin:0; }
+ul{ padding:0; list-style:none; }
+table{ border-collapse:collapse; width:100%; }
+
+.container{
+  width:100%;
+  max-width:var(--container);
+  margin-inline:auto;
+  padding-inline:var(--gutter);
+}
+
+/* ------------------------------------------------------------
+   共通パーツ
+   ------------------------------------------------------------ */
+.section{ padding:64px 0; }
+.section--tight{ padding:48px 0; }
+
+/* 明るい面のセクション（読ませるところ） */
+.section--light{
+  background:var(--paper-2);
+  color:var(--ink);
+}
+.section--light .lead{ color:var(--ink-2); }
+.section--light .eyebrow{ color:var(--pink-deep); }
+
+.eyebrow{
+  display:block;
+  font-family:var(--ff-en);
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.14em;
+  line-height:1.4;
+  color:var(--pink-2);
+  margin-bottom:10px;
+}
+
+.h1{
+  font-family:var(--ff-round);
+  font-size:30px;
+  font-weight:700;
+  line-height:1.45;
+  letter-spacing:.01em;
+}
+.h2{
+  font-family:var(--ff-round);
+  font-size:24px;
+  font-weight:700;
+  line-height:1.5;
+  letter-spacing:.01em;
+}
+.h3{
+  font-family:var(--ff-round);
+  font-size:17px;
+  font-weight:700;
+  line-height:1.6;
+}
+
+.lead{
+  margin-top:14px;
+  font-size:14px;
+  line-height:1.95;
+  color:var(--text-2);
+}
+.note-s{
+  margin-top:10px;
+  font-size:11.5px;
+  line-height:1.8;
+  color:var(--text-3);
+}
+.section--light .note-s{ color:#8B8099; }
+
+.center{ text-align:center; }
+
+/* ボタン */
+.btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  width:100%;
+  padding:17px 22px;
+  border-radius:999px;
+  font-family:var(--ff-round);
+  font-size:16px;
+  font-weight:700;
+  line-height:1.4;
+  color:#fff;
+  background:linear-gradient(100deg, var(--pink) 0%, var(--violet) 100%);
+  box-shadow:0 10px 26px rgba(255,111,168,0.30);
+}
+.btn__arrow{
+  font-family:var(--ff-en);
+  font-size:15px;
+  font-weight:600;
+}
+.btn--ghost{
+  color:var(--text);
+  background:transparent;
+  border:1.5px solid rgba(255,255,255,0.35);
+  box-shadow:none;
+  font-size:15px;
+  padding:15px 22px;
+}
+.section--light .btn--ghost{
+  color:var(--ink);
+  border-color:rgba(36,24,64,0.28);
+}
+.btn--sm{
+  width:auto;
+  display:inline-flex;
+  padding:11px 20px;
+  font-size:13.5px;
+  box-shadow:0 6px 16px rgba(255,111,168,0.26);
+}
+
+.badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:18px;
+}
+.badge{
+  font-size:11.5px;
+  font-weight:500;
+  line-height:1.5;
+  padding:6px 13px;
+  border-radius:999px;
+  color:var(--violet-2);
+  border:1px solid rgba(155,123,255,0.45);
+  background:rgba(155,123,255,0.10);
+}
+
+/* 画像プレースホルダー枠 */
+.media{
+  border-radius:var(--radius);
+  overflow:hidden;
+  background:var(--night-3);
+}
+.media img{ width:100%; }
+
+/* ------------------------------------------------------------
+   01 ヘッダー
+   ------------------------------------------------------------ */
+.header{
+  border-bottom:1px solid var(--line-2);
+  background:var(--night);
+}
+.header__inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  height:58px;
+}
+.logo__ja{
+  display:block;
+  font-family:var(--ff-en);
+  font-size:19px;
+  font-weight:700;
+  letter-spacing:.09em;
+  line-height:1.2;
+}
+.logo__en{
+  display:block;
+  font-family:var(--ff-en);
+  font-size:8.5px;
+  font-weight:500;
+  letter-spacing:.22em;
+  line-height:1.4;
+  color:var(--text-3);
+}
+.header__nav{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  font-size:12.5px;
+  color:var(--text-2);
+}
+
+/* ------------------------------------------------------------
+   02 ファーストビュー
+   ------------------------------------------------------------ */
+.fv{
+  background:
+    radial-gradient(120% 70% at 78% 8%, rgba(255,111,168,0.30) 0%, rgba(255,111,168,0) 58%),
+    radial-gradient(110% 60% at 12% 42%, rgba(155,123,255,0.28) 0%, rgba(155,123,255,0) 60%),
+    linear-gradient(180deg, #170F2A 0%, var(--night) 100%);
+  padding:40px 0 52px;
+}
+.fv__copy{ margin-bottom:26px; }
+.fv .h1{ font-size:30px; }
+.fv .h1 em{
+  font-style:normal;
+  color:var(--pink-2);
+}
+.fv__visual{
+  position:relative;
+  margin:0 0 26px;
+}
+.fv__media{
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:0 20px 50px rgba(0,0,0,0.45);
+}
+.fv__chat{
+  width:88%;
+  margin:-72px 0 0 auto;
+  position:relative;
+}
+.fv__cta{ margin-top:8px; }
+
+/* ------------------------------------------------------------
+   チャットUI（LINE風）
+   ------------------------------------------------------------ */
+.chat{
+  background:var(--paper-2);
+  border-radius:18px;
+  padding:14px 13px 16px;
+  box-shadow:0 14px 34px rgba(0,0,0,0.35);
+}
+.chat--plain{ box-shadow:none; }
+.chat__head{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding-bottom:10px;
+  margin-bottom:10px;
+  border-bottom:1px solid var(--paper-3);
+}
+.chat__avatar{
+  width:26px;
+  height:26px;
+  border-radius:50%;
+  background:linear-gradient(135deg, var(--pink) 0%, var(--violet) 100%);
+}
+.chat__name{
+  font-family:var(--ff-round);
+  font-size:12.5px;
+  font-weight:700;
+  color:var(--ink);
+  line-height:1.4;
+}
+.chat__day{
+  display:block;
+  width:fit-content;
+  margin:0 auto 12px;
+  padding:3px 12px;
+  border-radius:999px;
+  font-family:var(--ff-en);
+  font-size:10.5px;
+  font-weight:600;
+  letter-spacing:.1em;
+  color:#7A6E93;
+  background:var(--paper-3);
+}
+.chat__row{
+  display:flex;
+  align-items:flex-end;
+  gap:7px;
+  margin-bottom:9px;
+}
+.chat__row:last-child{ margin-bottom:0; }
+.chat__row--me{ justify-content:flex-end; }
+.chat__icon{
+  width:24px;
+  height:24px;
+  border-radius:50%;
+  flex:0 0 24px;
+  background:linear-gradient(135deg, var(--pink-2) 0%, var(--violet) 100%);
+}
+.bubble{
+  max-width:74%;
+  padding:9px 13px;
+  border-radius:16px;
+  font-size:13px;
+  line-height:1.75;
+}
+.bubble--ai{
+  background:var(--paper);
+  color:var(--ink);
+  border-bottom-left-radius:5px;
+}
+.bubble--me{
+  background:linear-gradient(120deg, var(--pink) 0%, var(--pink-deep) 100%);
+  color:#fff;
+  border-bottom-right-radius:5px;
+}
+
+/* ------------------------------------------------------------
+   03 ユーザー課題・共感
+   ------------------------------------------------------------ */
+.scenes{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:26px;
+}
+.scene{
+  border-radius:16px;
+  overflow:hidden;
+  background:var(--night-2);
+  border:1px solid var(--line-2);
+}
+.scene__body{ padding:13px 14px 16px; }
+.scene__ttl{
+  font-family:var(--ff-round);
+  font-size:13.5px;
+  font-weight:700;
+  line-height:1.6;
+}
+.scene__txt{
+  margin-top:5px;
+  font-size:12px;
+  line-height:1.8;
+  color:var(--text-2);
+}
+.band{
+  margin-top:24px;
+  padding:20px 18px;
+  border-radius:16px;
+  text-align:center;
+  font-family:var(--ff-round);
+  font-size:16px;
+  font-weight:700;
+  line-height:1.7;
+  color:#fff;
+  background:linear-gradient(100deg, rgba(255,111,168,0.22) 0%, rgba(155,123,255,0.22) 100%);
+  border:1px solid rgba(255,151,194,0.35);
+}
+
+/* ------------------------------------------------------------
+   04 サラ紹介
+   ------------------------------------------------------------ */
+.sara{
+  background:
+    radial-gradient(100% 55% at 50% 0%, rgba(255,111,168,0.20) 0%, rgba(255,111,168,0) 62%),
+    var(--night-2);
+}
+.sara__visual{ margin:22px 0; }
+.sara__cuts{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  margin-top:8px;
+}
+.sara__cuts .media{ border-radius:12px; }
+.profile{
+  margin-top:22px;
+  border-radius:16px;
+  border:1px solid var(--line);
+  overflow:hidden;
+}
+.profile__row{
+  display:flex;
+  gap:12px;
+  padding:12px 15px;
+  border-bottom:1px solid var(--line-2);
+  font-size:13px;
+  line-height:1.8;
+}
+.profile__row:last-child{ border-bottom:0; }
+.profile__key{
+  flex:0 0 76px;
+  font-family:var(--ff-round);
+  font-weight:700;
+  color:var(--pink-2);
+}
+.profile__val{ color:var(--text-2); }
+
+/* ------------------------------------------------------------
+   05 会話デモ・記憶
+   ------------------------------------------------------------ */
+.demo__video{ margin:22px 0; }
+.timeline{ display:grid; gap:14px; }
+
+/* ------------------------------------------------------------
+   CTA帯（セクション間）
+   ------------------------------------------------------------ */
+.cta-strip{
+  padding:34px 0;
+  background:linear-gradient(100deg, #2A1546 0%, #3A1E52 100%);
+}
+.cta-strip__msg{
+  font-family:var(--ff-round);
+  font-size:17px;
+  font-weight:700;
+  line-height:1.7;
+  text-align:center;
+  margin-bottom:16px;
+}
+
+/* ------------------------------------------------------------
+   06 一般AIとの違い
+   ------------------------------------------------------------ */
+.compare{
+  margin-top:24px;
+  font-size:12.5px;
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid var(--line);
+}
+.compare th,
+.compare td{
+  padding:12px 11px;
+  text-align:left;
+  vertical-align:top;
+  line-height:1.7;
+  border-bottom:1px solid var(--line-2);
+}
+.compare thead th{
+  font-family:var(--ff-round);
+  font-size:12px;
+  font-weight:700;
+  background:rgba(255,255,255,0.05);
+  color:var(--text-2);
+}
+.compare thead .is-airen{
+  color:#fff;
+  background:linear-gradient(120deg, rgba(255,111,168,0.35) 0%, rgba(155,123,255,0.35) 100%);
+}
+.compare tbody th{
+  width:26%;
+  font-weight:500;
+  color:var(--text-3);
+  font-size:12px;
+}
+.compare td{ color:var(--text-2); }
+.compare .is-airen{
+  color:#fff;
+  font-weight:700;
+  background:rgba(255,111,168,0.09);
+}
+.compare tr:last-child th,
+.compare tr:last-child td{ border-bottom:0; }
+
+/* ------------------------------------------------------------
+   07 関係が深まる仕組み
+   ------------------------------------------------------------ */
+.steps{
+  display:grid;
+  gap:10px;
+  margin-top:24px;
+}
+.step{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  padding:16px 16px;
+  border-radius:14px;
+  background:var(--paper);
+  border:1px solid var(--paper-3);
+}
+.step__num{
+  flex:0 0 32px;
+  height:32px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--ff-en);
+  font-size:14px;
+  font-weight:700;
+  color:#fff;
+  background:linear-gradient(135deg, var(--pink) 0%, var(--violet) 100%);
+}
+.step__ttl{
+  font-family:var(--ff-round);
+  font-size:15px;
+  font-weight:700;
+  line-height:1.6;
+  color:var(--ink);
+}
+.step__txt{
+  margin-top:3px;
+  font-size:12.5px;
+  line-height:1.8;
+  color:var(--ink-2);
+}
+
+/* ------------------------------------------------------------
+   08 料金・無料体験
+   ------------------------------------------------------------ */
+.plans{
+  display:grid;
+  gap:14px;
+  margin-top:24px;
+}
+.plan{
+  padding:22px 20px;
+  border-radius:18px;
+  background:var(--night-2);
+  border:1px solid var(--line);
+}
+.plan--reco{
+  border:1.5px solid var(--pink);
+  background:linear-gradient(170deg, rgba(255,111,168,0.14) 0%, rgba(155,123,255,0.10) 100%);
+}
+.plan--free{
+  background:var(--paper);
+  border:1px solid var(--paper-3);
+  color:var(--ink);
+}
+.plan__ribbon{
+  display:inline-block;
+  margin-bottom:10px;
+  padding:3px 12px;
+  border-radius:999px;
+  font-size:11px;
+  font-weight:700;
+  color:#fff;
+  background:var(--pink-deep);
+}
+.plan__name{
+  font-family:var(--ff-en);
+  font-size:14px;
+  font-weight:600;
+  letter-spacing:.14em;
+  color:var(--pink-2);
+}
+.plan--free .plan__name{ color:var(--pink-deep); }
+.plan__price{
+  font-family:var(--ff-en);
+  font-size:32px;
+  font-weight:700;
+  line-height:1.3;
+  margin-top:2px;
+}
+.plan__price small{
+  font-size:14px;
+  font-weight:500;
+  color:var(--text-3);
+}
+.plan--free .plan__price small{ color:#8B8099; }
+.plan__desc{
+  font-size:12.5px;
+  line-height:1.8;
+  color:var(--text-2);
+}
+.plan--free .plan__desc{ color:var(--ink-2); }
+.plan__list{
+  margin:14px 0 18px;
+  display:grid;
+  gap:7px;
+  font-size:12.5px;
+  line-height:1.75;
+  color:var(--text-2);
+}
+.plan--free .plan__list{ color:var(--ink-2); }
+.plan__list li{
+  display:flex;
+  gap:8px;
+  align-items:flex-start;
+}
+.plan__check{
+  flex:0 0 16px;
+  height:16px;
+  margin-top:4px;
+  border-radius:50%;
+  background:rgba(255,111,168,0.22);
+  color:var(--pink-2);
+  font-size:9px;
+  line-height:16px;
+  text-align:center;
+  font-weight:700;
+}
+.plan--free .plan__check{
+  background:rgba(225,74,136,0.14);
+  color:var(--pink-deep);
+}
+
+/* ------------------------------------------------------------
+   09 継続利用価値
+   ------------------------------------------------------------ */
+.days{
+  display:grid;
+  gap:10px;
+  margin-top:24px;
+}
+.day-card{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  padding:15px 16px;
+  border-radius:14px;
+  background:var(--night-2);
+  border:1px solid var(--line-2);
+}
+.day-card__label{
+  flex:0 0 58px;
+  font-family:var(--ff-en);
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.06em;
+  line-height:1.8;
+  color:var(--violet-2);
+}
+.day-card__ttl{
+  font-family:var(--ff-round);
+  font-size:14.5px;
+  font-weight:700;
+  line-height:1.6;
+}
+.day-card__txt{
+  margin-top:3px;
+  font-size:12.5px;
+  line-height:1.8;
+  color:var(--text-2);
+}
+
+/* ------------------------------------------------------------
+   10 安全性
+   ------------------------------------------------------------ */
+.safety{
+  display:grid;
+  gap:12px;
+  margin-top:24px;
+}
+.safety__item{
+  padding:16px 17px;
+  border-radius:14px;
+  background:var(--night-2);
+  border:1px solid var(--line-2);
+}
+.safety__ttl{
+  font-family:var(--ff-round);
+  font-size:14.5px;
+  font-weight:700;
+  line-height:1.6;
+}
+.safety__txt{
+  margin-top:5px;
+  font-size:12.5px;
+  line-height:1.85;
+  color:var(--text-2);
+}
+.age-gate{
+  margin-top:20px;
+  padding:14px 16px;
+  border-radius:12px;
+  font-size:12px;
+  line-height:1.8;
+  color:var(--violet-2);
+  background:rgba(155,123,255,0.10);
+  border:1px solid rgba(155,123,255,0.35);
+}
+
+/* ------------------------------------------------------------
+   11 FAQ
+   ------------------------------------------------------------ */
+.faq{
+  margin-top:22px;
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid var(--paper-3);
+  background:var(--paper);
+}
+.faq__item{ border-bottom:1px solid var(--paper-3); }
+.faq__item:last-child{ border-bottom:0; }
+.faq__q{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+  padding:15px 16px;
+  font-family:var(--ff-round);
+  font-size:13.5px;
+  font-weight:700;
+  line-height:1.7;
+  color:var(--ink);
+}
+.faq__mark{
+  flex:0 0 auto;
+  font-size:16px;
+  line-height:1.5;
+  color:var(--pink-deep);
+}
+.faq__a{
+  padding:0 16px 16px;
+  font-size:12.5px;
+  line-height:1.9;
+  color:var(--ink-2);
+}
+
+/* ------------------------------------------------------------
+   12 最終CTA
+   ------------------------------------------------------------ */
+.final{
+  padding:60px 0 64px;
+  text-align:center;
+  background:
+    radial-gradient(90% 60% at 50% 0%, rgba(255,111,168,0.28) 0%, rgba(255,111,168,0) 62%),
+    linear-gradient(180deg, #1D1235 0%, var(--night) 100%);
+}
+.final__media{
+  width:150px;
+  margin:0 auto 22px;
+  border-radius:50%;
+  overflow:hidden;
+}
+
+/* ------------------------------------------------------------
+   13 フッター
+   ------------------------------------------------------------ */
+.footer{
+  padding:36px 0 34px;
+  background:#0C0818;
+  border-top:1px solid var(--line-2);
+}
+.footer__logo{
+  font-family:var(--ff-en);
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.09em;
+}
+.footer__desc{
+  margin-top:6px;
+  font-size:11.5px;
+  line-height:1.8;
+  color:var(--text-3);
+}
+.footer__links{
+  display:grid;
+  gap:9px;
+  margin-top:22px;
+  font-size:12.5px;
+  color:var(--text-2);
+}
+.footer__links a{
+  display:inline-block;
+  border-bottom:1px solid var(--line);
+  padding-bottom:2px;
+}
+.footer__copy{
+  margin-top:26px;
+  font-family:var(--ff-en);
+  font-size:10.5px;
+  letter-spacing:.06em;
+  color:var(--text-3);
+}
+
+/* ------------------------------------------------------------
+   追従CTA
+   ------------------------------------------------------------ */
+.fab{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:60;
+  padding:10px var(--gutter) calc(10px + env(safe-area-inset-bottom));
+  background:rgba(18,12,34,0.94);
+  border-top:1px solid var(--line);
+}
+.fab__inner{
+  width:100%;
+  max-width:var(--container);
+  margin-inline:auto;
+}
+.fab .btn{ padding:15px 22px; font-size:15px; }
+.fab__note{
+  margin-top:5px;
+  text-align:center;
+  font-size:10.5px;
+  line-height:1.6;
+  color:var(--text-3);
+}
+
+/* ------------------------------------------------------------
+   タブレット以上（縦型LPを中央に置いたまま少しだけ拡張）
+   ------------------------------------------------------------ */
+@media (min-width:720px){
+  body{ padding-bottom:0; }
+  :root{ --container:720px; --gutter:40px; }
+
+  .h1{ font-size:38px; }
+  .h2{ font-size:28px; }
+  .fv .h1{ font-size:38px; }
+  .lead{ font-size:15px; }
+  .section{ padding:84px 0; }
+
+  .fv{ padding:56px 0 72px; }
+  .fv__visual{ max-width:380px; margin-inline:auto; }
+  .fv__cta{ max-width:420px; margin-inline:auto; }
+  .demo__video{ max-width:420px; margin-inline:auto; }
+  .sara__visual{ max-width:460px; margin-inline:auto; }
+  .fv__chat{
+    width:92%;
+    margin:-90px 0 0 auto;
+  }
+
+  .scenes{ grid-template-columns:repeat(4,1fr); }
+  .steps{ grid-template-columns:repeat(2,1fr); }
+  .plans{ grid-template-columns:repeat(3,1fr); align-items:start; }
+  .days{ grid-template-columns:repeat(2,1fr); }
+  .safety{ grid-template-columns:repeat(3,1fr); }
+  .timeline{ grid-template-columns:repeat(3,1fr); }
+
+  .cta-strip__inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+  }
+  .cta-strip__msg{ margin-bottom:0; text-align:left; }
+  .cta-strip .btn{ width:auto; flex:0 0 auto; padding:16px 30px; }
+
+  .fab{
+    left:auto;
+    right:24px;
+    bottom:24px;
+    width:290px;
+    padding:12px 14px;
+    border:1px solid var(--line);
+    border-radius:18px;
+    box-shadow:0 14px 34px rgba(0,0,0,0.5);
+  }
+}
+
+/* ------------------------------------------------------------
+   デスクトップ：FVのみ2カラムに
+   ------------------------------------------------------------ */
+@media (min-width:980px){
+  :root{ --container:960px; }
+
+  .fv__inner{
+    display:grid;
+    grid-template-columns:1fr 340px;
+    grid-template-areas:
+      "text   visual"
+      "cta    visual";
+    align-content:center;
+    column-gap:48px;
+    row-gap:26px;
+  }
+  .fv__text{ grid-area:text; align-self:end; }
+  .fv__cta{ grid-area:cta; align-self:start; margin-inline:0; max-width:420px; }
+  .fv__visual{ grid-area:visual; align-self:center; margin:0; max-width:340px; }
+  .fv .h1{ font-size:44px; }
+}
