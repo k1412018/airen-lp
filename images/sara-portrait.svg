@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img" aria-label="サラ／3Dポートレート">
   <defs>
     <linearGradient id="g" x1="0" y1="0" x2="800" y2="800" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#FF6FA8"/><stop offset="1" stop-color="#8B5CF6"/>
+      <stop offset="0" stop-color="#E9A7C2"/><stop offset="1" stop-color="#5A6BA8"/>
     </linearGradient>
   </defs>
   <rect width="800" height="800" fill="url(#g)"/>

@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" role="img" aria-label="記憶イメージビジュアル">
   <defs>
     <linearGradient id="g" x1="0" y1="0" x2="900" y2="600" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#7C5CE0"/><stop offset="1" stop-color="#2A1B4D"/>
+      <stop offset="0" stop-color="#46568C"/><stop offset="1" stop-color="#1A2440"/>
     </linearGradient>
   </defs>
   <rect width="900" height="600" fill="url(#g)"/>

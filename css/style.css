@@ -6,35 +6,35 @@
    Night Violet × Sara Pink / スマホ縦型・3Dアニメ風ビジュアル前提
    ============================================================ */
 :root{
-  /* 背景：夜の紫紺。3Dアニメ調のビジュアルが最も映えるトーン */
-  --night:      #120C22;
-  --night-2:    #1B1132;
-  --night-3:    #241840;
-  --night-4:    #2E1F4F;
+  /* 背景：夜の静けさ＝トワイライトのインディゴ。紫の刺激を抜いて青に寄せる */
+  --night:      #101829;
+  --night-2:    #16203A;
+  --night-3:    #1D2949;
+  --night-4:    #253057;
 
-  /* アクセント：サラの髪色から起こしたピンク＋ラベンダー */
-  --pink:       #FF6FA8;
-  --pink-2:     #FF97C2;
-  --pink-deep:  #E14A88;
-  --violet:     #9B7BFF;
-  --violet-2:   #C4AEFF;
+  /* アクセント：サラのピンクは「面」ではなく「光」として置く（彩度を落とす） */
+  --pink:       #EC9BBC;
+  --pink-2:     #F6BCD2;
+  --pink-deep:  #9E4C67;   /* 明るい面に乗せる用（コントラスト確保） */
+  --violet:     #7E8FC7;   /* ブルーラベンダー＝空気の色 */
+  --violet-2:   #A6B2DC;
 
   /* テキスト */
-  --text:       #F5F1FB;
-  --text-2:     #C7BCDE;
-  --text-3:     #948AAE;
-  --ink:        #241840;   /* 明るい面に乗せる文字 */
-  --ink-2:      #5C5177;
+  --text:       #EDF0F8;
+  --text-2:     #B6BFD6;
+  --text-3:     #7D87A3;
+  --ink:        #16203A;   /* 明るい面に乗せる文字 */
+  --ink-2:      #4E5876;
 
   /* 明るい面（チャットUI・カード） */
   --paper:      #FFFFFF;
-  --paper-2:    #F4F0FB;
-  --paper-3:    #E8E1F5;
+  --paper-2:    #F2F4FA;
+  --paper-3:    #E1E6F2;
 
-  --line:       rgba(255,255,255,0.13);
-  --line-2:     rgba(255,255,255,0.08);
+  --line:       rgba(255,255,255,0.12);
+  --line-2:     rgba(255,255,255,0.07);
 
-  --outer:      #08050F;   /* PC時、縦型カラムの外側 */
+  --outer:      #0A0F1C;   /* PC時、縦型カラムの外側 */
 
   --container:  420px;     /* スマホ縦型固定：PCでも広げない */
   --gutter:     20px;
@@ -138,7 +138,7 @@ table{ border-collapse:collapse; width:100%; }
   line-height:1.8;
   color:var(--text-3);
 }
-.section--light .note-s{ color:#8B8099; }
+.section--light .note-s{ color:#7B849C; }
 
 .center{ text-align:center; }
 
@@ -155,9 +155,9 @@ table{ border-collapse:collapse; width:100%; }
   font-size:16px;
   font-weight:700;
   line-height:1.4;
-  color:#fff;
-  background:linear-gradient(100deg, var(--pink) 0%, var(--violet) 100%);
-  box-shadow:0 10px 26px rgba(255,111,168,0.30);
+  color:var(--ink);
+  background:linear-gradient(100deg, var(--pink-2) 0%, #CBD4EE 100%);
+  box-shadow:0 8px 24px rgba(236,155,188,0.20);
 }
 .btn__arrow{
   font-family:var(--ff-en);
@@ -174,14 +174,14 @@ table{ border-collapse:collapse; width:100%; }
 }
 .section--light .btn--ghost{
   color:var(--ink);
-  border-color:rgba(36,24,64,0.28);
+  border-color:rgba(22,32,58,0.26);
 }
 .btn--sm{
   width:auto;
   display:inline-flex;
   padding:11px 20px;
   font-size:13.5px;
-  box-shadow:0 6px 16px rgba(255,111,168,0.26);
+  box-shadow:0 5px 14px rgba(236,155,188,0.20);
 }
 
 .badges{
@@ -197,8 +197,8 @@ table{ border-collapse:collapse; width:100%; }
   padding:6px 13px;
   border-radius:999px;
   color:var(--violet-2);
-  border:1px solid rgba(155,123,255,0.45);
-  background:rgba(155,123,255,0.10);
+  border:1px solid rgba(166,178,220,0.38);
+  background:rgba(166,178,220,0.08);
 }
 
 /* 画像プレースホルダー枠 */
@@ -253,9 +253,9 @@ table{ border-collapse:collapse; width:100%; }
    ------------------------------------------------------------ */
 .fv{
   background:
-    radial-gradient(120% 70% at 78% 8%, rgba(255,111,168,0.30) 0%, rgba(255,111,168,0) 58%),
-    radial-gradient(110% 60% at 12% 42%, rgba(155,123,255,0.28) 0%, rgba(155,123,255,0) 60%),
-    linear-gradient(180deg, #170F2A 0%, var(--night) 100%);
+    radial-gradient(120% 70% at 78% 10%, rgba(236,155,188,0.20) 0%, rgba(236,155,188,0) 58%),
+    radial-gradient(110% 60% at 10% 44%, rgba(126,143,199,0.22) 0%, rgba(126,143,199,0) 62%),
+    linear-gradient(180deg, #16213A 0%, var(--night) 100%);
   padding:40px 0 52px;
 }
 .fv__copy{ margin-bottom:26px; }
@@ -321,7 +321,7 @@ table{ border-collapse:collapse; width:100%; }
   font-size:10.5px;
   font-weight:600;
   letter-spacing:.1em;
-  color:#7A6E93;
+  color:#5A647E;
   background:var(--paper-3);
 }
 .chat__row{
@@ -352,8 +352,8 @@ table{ border-collapse:collapse; width:100%; }
   border-bottom-left-radius:5px;
 }
 .bubble--me{
-  background:linear-gradient(120deg, var(--pink) 0%, var(--pink-deep) 100%);
-  color:#fff;
+  background:#F7DCE6;
+  color:var(--ink);
   border-bottom-right-radius:5px;
 }
 
@@ -395,8 +395,8 @@ table{ border-collapse:collapse; width:100%; }
   font-weight:700;
   line-height:1.7;
   color:#fff;
-  background:linear-gradient(100deg, rgba(255,111,168,0.22) 0%, rgba(155,123,255,0.22) 100%);
-  border:1px solid rgba(255,151,194,0.35);
+  background:linear-gradient(100deg, rgba(236,155,188,0.15) 0%, rgba(126,143,199,0.15) 100%);
+  border:1px solid rgba(246,188,210,0.28);
 }
 
 /* ------------------------------------------------------------
@@ -404,7 +404,7 @@ table{ border-collapse:collapse; width:100%; }
    ------------------------------------------------------------ */
 .sara{
   background:
-    radial-gradient(100% 55% at 50% 0%, rgba(255,111,168,0.20) 0%, rgba(255,111,168,0) 62%),
+    radial-gradient(100% 55% at 50% 0%, rgba(236,155,188,0.14) 0%, rgba(236,155,188,0) 62%),
     var(--night-2);
 }
 .sara__visual{ margin:22px 0; }
@@ -449,7 +449,7 @@ table{ border-collapse:collapse; width:100%; }
    ------------------------------------------------------------ */
 .cta-strip{
   padding:34px 0;
-  background:linear-gradient(100deg, #2A1546 0%, #3A1E52 100%);
+  background:linear-gradient(100deg, #1A2545 0%, #262F55 100%);
 }
 .cta-strip__msg{
   font-family:var(--ff-round);
@@ -487,7 +487,7 @@ table{ border-collapse:collapse; width:100%; }
 }
 .compare thead .is-airen{
   color:#fff;
-  background:linear-gradient(120deg, rgba(255,111,168,0.35) 0%, rgba(155,123,255,0.35) 100%);
+  background:linear-gradient(120deg, rgba(236,155,188,0.24) 0%, rgba(126,143,199,0.24) 100%);
 }
 .compare tbody th{
   width:26%;
@@ -499,7 +499,7 @@ table{ border-collapse:collapse; width:100%; }
 .compare .is-airen{
   color:#fff;
   font-weight:700;
-  background:rgba(255,111,168,0.09);
+  background:rgba(236,155,188,0.07);
 }
 .compare tr:last-child th,
 .compare tr:last-child td{ border-bottom:0; }
@@ -532,7 +532,7 @@ table{ border-collapse:collapse; width:100%; }
   font-size:14px;
   font-weight:700;
   color:#fff;
-  background:linear-gradient(135deg, var(--pink) 0%, var(--violet) 100%);
+  background:linear-gradient(135deg, #B05A7A 0%, #5A6BA8 100%);
 }
 .step__ttl{
   font-family:var(--ff-round);
@@ -564,7 +564,7 @@ table{ border-collapse:collapse; width:100%; }
 }
 .plan--reco{
   border:1.5px solid var(--pink);
-  background:linear-gradient(170deg, rgba(255,111,168,0.14) 0%, rgba(155,123,255,0.10) 100%);
+  background:linear-gradient(170deg, rgba(236,155,188,0.11) 0%, rgba(126,143,199,0.09) 100%);
 }
 .plan--free{
   background:var(--paper);
@@ -601,7 +601,7 @@ table{ border-collapse:collapse; width:100%; }
   font-weight:500;
   color:var(--text-3);
 }
-.plan--free .plan__price small{ color:#8B8099; }
+.plan--free .plan__price small{ color:#7B849C; }
 .plan__desc{
   font-size:12.5px;
   line-height:1.8;
@@ -627,7 +627,7 @@ table{ border-collapse:collapse; width:100%; }
   height:16px;
   margin-top:4px;
   border-radius:50%;
-  background:rgba(255,111,168,0.22);
+  background:rgba(236,155,188,0.20);
   color:var(--pink-2);
   font-size:9px;
   line-height:16px;
@@ -635,7 +635,7 @@ table{ border-collapse:collapse; width:100%; }
   font-weight:700;
 }
 .plan--free .plan__check{
-  background:rgba(225,74,136,0.14);
+  background:rgba(158,76,103,0.13);
   color:var(--pink-deep);
 }
 
@@ -711,8 +711,8 @@ table{ border-collapse:collapse; width:100%; }
   font-size:12px;
   line-height:1.8;
   color:var(--violet-2);
-  background:rgba(155,123,255,0.10);
-  border:1px solid rgba(155,123,255,0.35);
+  background:rgba(166,178,220,0.08);
+  border:1px solid rgba(166,178,220,0.30);
 }
 
 /* ------------------------------------------------------------
@@ -759,8 +759,8 @@ table{ border-collapse:collapse; width:100%; }
   padding:60px 0 64px;
   text-align:center;
   background:
-    radial-gradient(90% 60% at 50% 0%, rgba(255,111,168,0.28) 0%, rgba(255,111,168,0) 62%),
-    linear-gradient(180deg, #1D1235 0%, var(--night) 100%);
+    radial-gradient(90% 60% at 50% 0%, rgba(236,155,188,0.20) 0%, rgba(236,155,188,0) 62%),
+    linear-gradient(180deg, #18223C 0%, var(--night) 100%);
 }
 .final__media{
   width:150px;
@@ -774,7 +774,7 @@ table{ border-collapse:collapse; width:100%; }
    ------------------------------------------------------------ */
 .footer{
   padding:36px 0 34px;
-  background:#0C0818;
+  background:#0B1120;
   border-top:1px solid var(--line-2);
 }
 .footer__logo{
@@ -822,7 +822,7 @@ table{ border-collapse:collapse; width:100%; }
   margin-inline:auto;
   z-index:60;
   padding:10px var(--gutter) calc(10px + env(safe-area-inset-bottom));
-  background:rgba(18,12,34,0.94);
+  background:rgba(16,24,41,0.95);
   border-top:1px solid var(--line);
 }
 .fab__inner{

@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800" role="img" aria-label="サラ／表情カット B">
   <defs>
     <linearGradient id="g" x1="0" y1="0" x2="600" y2="800" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#A78BFA"/><stop offset="1" stop-color="#5B3FB5"/>
+      <stop offset="0" stop-color="#A6B2DC"/><stop offset="1" stop-color="#3C4A7A"/>
     </linearGradient>
   </defs>
   <rect width="600" height="800" fill="url(#g)"/>
