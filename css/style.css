@@ -46,7 +46,7 @@
 
   --container:  420px;     /* スマホ縦型固定：PCでも広げない */
   --gutter:     20px;
-  --radius:     18px;
+  --radius:     20px;
 
   --ff-ja:      "Noto Sans JP", "Hiragino Sans", sans-serif;
   --ff-round:   "Zen Maru Gothic", "Noto Sans JP", "Hiragino Sans", sans-serif;
@@ -61,6 +61,7 @@ body{
   font-family:var(--ff-ja);
   font-size:15px;
   line-height:1.9;
+  letter-spacing:.02em;
   color:var(--text);
   background:var(--night);
   -webkit-font-smoothing:antialiased;
@@ -91,8 +92,8 @@ table{ border-collapse:collapse; width:100%; }
 /* ------------------------------------------------------------
    共通パーツ
    ------------------------------------------------------------ */
-.section{ padding:64px 0; }
-.section--tight{ padding:48px 0; }
+.section{ padding:78px 0; }
+.section--tight{ padding:56px 0; }
 
 /* 明るい面のセクション（読ませるところ） */
 .section--light{
@@ -101,6 +102,16 @@ table{ border-collapse:collapse; width:100%; }
 }
 .section--light .lead{ color:var(--ink-2); }
 .section--light .eyebrow{ color:var(--pink-deep); }
+
+.section > .container > .eyebrow,
+.section > .container > .h2,
+.section > .container > .lead{
+  text-align:center;
+}
+.section > .container > .lead{
+  max-width:330px;
+  margin-inline:auto;
+}
 
 .eyebrow{
   display:block;
@@ -115,17 +126,17 @@ table{ border-collapse:collapse; width:100%; }
 
 .h1{
   font-family:var(--ff-round);
-  font-size:30px;
+  font-size:31px;
   font-weight:700;
   line-height:1.45;
-  letter-spacing:.01em;
+  letter-spacing:.02em;
 }
 .h2{
   font-family:var(--ff-round);
-  font-size:24px;
+  font-size:26px;
   font-weight:700;
-  line-height:1.5;
-  letter-spacing:.01em;
+  line-height:1.45;
+  letter-spacing:.02em;
 }
 .h3{
   font-family:var(--ff-round);
@@ -135,9 +146,9 @@ table{ border-collapse:collapse; width:100%; }
 }
 
 .lead{
-  margin-top:14px;
-  font-size:14px;
-  line-height:1.95;
+  margin-top:16px;
+  font-size:15px;
+  line-height:1.9;
   color:var(--text-2);
 }
 .note-s{
@@ -372,10 +383,10 @@ table{ border-collapse:collapse; width:100%; }
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:12px;
-  margin-top:26px;
+  margin-top:30px;
 }
 .scene{
-  border-radius:16px;
+  border-radius:18px;
   overflow:hidden;
   background:var(--paper);
   border:1px solid var(--line);
@@ -388,13 +399,13 @@ table{ border-collapse:collapse; width:100%; }
   line-height:1.6;
 }
 .scene__txt{
-  margin-top:5px;
-  font-size:12px;
-  line-height:1.8;
+  margin-top:6px;
+  font-size:13px;
+  line-height:1.85;
   color:var(--text-2);
 }
 .band{
-  margin-top:24px;
+  margin-top:30px;
   padding:20px 18px;
   border-radius:16px;
   text-align:center;
@@ -432,10 +443,10 @@ table{ border-collapse:collapse; width:100%; }
 .profile__row{
   display:flex;
   gap:12px;
-  padding:12px 15px;
+  padding:14px 16px;
   border-bottom:1px solid var(--line-2);
-  font-size:13px;
-  line-height:1.8;
+  font-size:13.5px;
+  line-height:1.85;
 }
 .profile__row:last-child{ border-bottom:0; }
 .profile__key{
@@ -472,10 +483,10 @@ table{ border-collapse:collapse; width:100%; }
    06 一般AIとの違い
    ------------------------------------------------------------ */
 .compare{
-  margin-top:24px;
+  margin-top:26px;
   background:var(--paper);
-  font-size:12.5px;
-  border-radius:14px;
+  font-size:13px;
+  border-radius:16px;
   overflow:hidden;
   border:1px solid var(--line);
 }
@@ -518,15 +529,15 @@ table{ border-collapse:collapse; width:100%; }
    ------------------------------------------------------------ */
 .steps{
   display:grid;
-  gap:10px;
-  margin-top:24px;
+  gap:12px;
+  margin-top:30px;
 }
 .step{
   display:flex;
   gap:14px;
   align-items:flex-start;
-  padding:16px 16px;
-  border-radius:14px;
+  padding:18px 18px;
+  border-radius:16px;
   background:var(--paper);
   border:1px solid var(--paper-3);
 }
@@ -551,9 +562,9 @@ table{ border-collapse:collapse; width:100%; }
   color:var(--ink);
 }
 .step__txt{
-  margin-top:3px;
-  font-size:12.5px;
-  line-height:1.8;
+  margin-top:4px;
+  font-size:13px;
+  line-height:1.85;
   color:var(--ink-2);
 }
 
@@ -562,8 +573,8 @@ table{ border-collapse:collapse; width:100%; }
    ------------------------------------------------------------ */
 .plans{
   display:grid;
-  gap:14px;
-  margin-top:24px;
+  gap:16px;
+  margin-top:30px;
 }
 .plan{
   padding:22px 20px;
@@ -653,15 +664,15 @@ table{ border-collapse:collapse; width:100%; }
    ------------------------------------------------------------ */
 .days{
   display:grid;
-  gap:10px;
-  margin-top:24px;
+  gap:12px;
+  margin-top:30px;
 }
 .day-card{
   display:flex;
   gap:14px;
   align-items:flex-start;
-  padding:15px 16px;
-  border-radius:14px;
+  padding:17px 18px;
+  border-radius:16px;
   background:var(--paper);
   border:1px solid var(--line);
 }
@@ -681,9 +692,9 @@ table{ border-collapse:collapse; width:100%; }
   line-height:1.6;
 }
 .day-card__txt{
-  margin-top:3px;
-  font-size:12.5px;
-  line-height:1.8;
+  margin-top:4px;
+  font-size:13px;
+  line-height:1.85;
   color:var(--text-2);
 }
 
@@ -693,11 +704,11 @@ table{ border-collapse:collapse; width:100%; }
 .safety{
   display:grid;
   gap:12px;
-  margin-top:24px;
+  margin-top:30px;
 }
 .safety__item{
-  padding:16px 17px;
-  border-radius:14px;
+  padding:18px 18px;
+  border-radius:16px;
   background:var(--violet-pale);
   border:1px solid var(--line-2);
 }
@@ -708,8 +719,8 @@ table{ border-collapse:collapse; width:100%; }
   line-height:1.6;
 }
 .safety__txt{
-  margin-top:5px;
-  font-size:12.5px;
+  margin-top:6px;
+  font-size:13px;
   line-height:1.85;
   color:var(--text-2);
 }
@@ -728,8 +739,8 @@ table{ border-collapse:collapse; width:100%; }
    11 FAQ
    ------------------------------------------------------------ */
 .faq{
-  margin-top:22px;
-  border-radius:14px;
+  margin-top:26px;
+  border-radius:16px;
   overflow:hidden;
   border:1px solid var(--line);
   background:var(--paper);
@@ -755,8 +766,8 @@ table{ border-collapse:collapse; width:100%; }
   color:var(--pink-deep);
 }
 .faq__a{
-  padding:0 16px 16px;
-  font-size:12.5px;
+  padding:0 18px 18px;
+  font-size:13px;
   line-height:1.9;
   color:var(--ink-2);
 }
@@ -873,3 +884,65 @@ table{ border-collapse:collapse; width:100%; }
 .footer__copy{ color:rgba(255,255,255,0.50); }
 .footer__links{ color:rgba(255,255,255,0.86); }
 .footer__links a{ border-bottom-color:rgba(255,255,255,0.22); }
+
+/* ------------------------------------------------------------
+   サラの吹き出し（要所に登場するポップアップ）
+   ※ Figmaインポート用に「出現後の静止状態」で置いている。
+      実装時はスクロール連動でふわっと出す想定。
+   ------------------------------------------------------------ */
+.sara-pop{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  margin-top:30px;
+}
+.sara-pop--right{
+  flex-direction:row-reverse;
+}
+.sara-pop__avatar{
+  flex:0 0 48px;
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  overflow:hidden;
+  background:var(--night-3);
+  border:2px solid var(--paper);
+  box-shadow:0 4px 14px rgba(38,41,58,0.16);
+}
+.sara-pop__avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.sara-pop__bubble{
+  max-width:270px;
+  padding:14px 17px;
+  border-radius:18px;
+  border-top-left-radius:5px;
+  background:var(--pink-pale);
+  border:1px solid rgba(201,67,111,0.18);
+  font-size:13.5px;
+  line-height:1.85;
+  color:var(--ink);
+}
+.sara-pop--right .sara-pop__bubble{
+  border-top-left-radius:18px;
+  border-top-right-radius:5px;
+}
+.sara-pop__name{
+  display:block;
+  font-family:var(--ff-round);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.06em;
+  color:var(--pink-2);
+  margin-bottom:3px;
+}
+
+/* ------------------------------------------------------------
+   FVも中央揃えに揃える（シフトラ／Awarefy型の縦型LP）
+   ------------------------------------------------------------ */
+.fv__text{ text-align:center; }
+.fv .badges{ justify-content:center; }
+.fv__cta .note-s{ text-align:center; }
+.final .lead{ max-width:300px; margin-inline:auto; }
