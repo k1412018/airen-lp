@@ -34,7 +34,9 @@
   --line:       rgba(255,255,255,0.13);
   --line-2:     rgba(255,255,255,0.08);
 
-  --container:  600px;
+  --outer:      #08050F;   /* PC時、縦型カラムの外側 */
+
+  --container:  420px;     /* スマホ縦型固定：PCでも広げない */
   --gutter:     20px;
   --radius:     18px;
 
@@ -54,6 +56,15 @@ body{
   color:var(--text);
   background:var(--night);
   -webkit-font-smoothing:antialiased;
+}
+
+/* スマホ縦型のカラム本体。PCでは中央寄せで表示する */
+.page{
+  width:100%;
+  max-width:var(--container);
+  margin-inline:auto;
+  background:var(--night);
+  overflow:hidden;
 }
 
 img{ display:block; max-width:100%; height:auto; }
@@ -806,6 +817,9 @@ table{ border-collapse:collapse; width:100%; }
   left:0;
   right:0;
   bottom:0;
+  width:100%;
+  max-width:var(--container);
+  margin-inline:auto;
   z-index:60;
   padding:10px var(--gutter) calc(10px + env(safe-area-inset-bottom));
   background:rgba(18,12,34,0.94);
@@ -826,74 +840,12 @@ table{ border-collapse:collapse; width:100%; }
 }
 
 /* ------------------------------------------------------------
-   タブレット以上（縦型LPを中央に置いたまま少しだけ拡張）
+   PCでも縦型のまま：スマホ幅のカラムを中央に置く
+   （要件：スマートフォン最適化の縦型デザイン）
    ------------------------------------------------------------ */
-@media (min-width:720px){
-  body{ padding-bottom:0; }
-  :root{ --container:720px; --gutter:40px; }
-
-  .h1{ font-size:38px; }
-  .h2{ font-size:28px; }
-  .fv .h1{ font-size:38px; }
-  .lead{ font-size:15px; }
-  .section{ padding:84px 0; }
-
-  .fv{ padding:56px 0 72px; }
-  .fv__visual{ max-width:380px; margin-inline:auto; }
-  .fv__cta{ max-width:420px; margin-inline:auto; }
-  .demo__video{ max-width:420px; margin-inline:auto; }
-  .sara__visual{ max-width:460px; margin-inline:auto; }
-  .fv__chat{
-    width:92%;
-    margin:-90px 0 0 auto;
+@media (min-width:520px){
+  body{ background:var(--outer); }
+  .page{
+    box-shadow:0 0 0 1px rgba(255,255,255,0.05), 0 24px 80px rgba(0,0,0,0.55);
   }
-
-  .scenes{ grid-template-columns:repeat(4,1fr); }
-  .steps{ grid-template-columns:repeat(2,1fr); }
-  .plans{ grid-template-columns:repeat(3,1fr); align-items:start; }
-  .days{ grid-template-columns:repeat(2,1fr); }
-  .safety{ grid-template-columns:repeat(3,1fr); }
-  .timeline{ grid-template-columns:repeat(3,1fr); }
-
-  .cta-strip__inner{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:24px;
-  }
-  .cta-strip__msg{ margin-bottom:0; text-align:left; }
-  .cta-strip .btn{ width:auto; flex:0 0 auto; padding:16px 30px; }
-
-  .fab{
-    left:auto;
-    right:24px;
-    bottom:24px;
-    width:290px;
-    padding:12px 14px;
-    border:1px solid var(--line);
-    border-radius:18px;
-    box-shadow:0 14px 34px rgba(0,0,0,0.5);
-  }
-}
-
-/* ------------------------------------------------------------
-   デスクトップ：FVのみ2カラムに
-   ------------------------------------------------------------ */
-@media (min-width:980px){
-  :root{ --container:960px; }
-
-  .fv__inner{
-    display:grid;
-    grid-template-columns:1fr 340px;
-    grid-template-areas:
-      "text   visual"
-      "cta    visual";
-    align-content:center;
-    column-gap:48px;
-    row-gap:26px;
-  }
-  .fv__text{ grid-area:text; align-self:end; }
-  .fv__cta{ grid-area:cta; align-self:start; margin-inline:0; max-width:420px; }
-  .fv__visual{ grid-area:visual; align-self:center; margin:0; max-width:340px; }
-  .fv .h1{ font-size:44px; }
 }
