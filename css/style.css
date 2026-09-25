@@ -6,35 +6,43 @@
    Night Violet × Sara Pink / スマホ縦型・3Dアニメ風ビジュアル前提
    ============================================================ */
 :root{
-  /* 背景：夜の静けさ＝トワイライトのインディゴ。紫の刺激を抜いて青に寄せる */
-  --night:      #101829;
-  --night-2:    #16203A;
-  --night-3:    #1D2949;
-  --night-4:    #253057;
+  /* ベース：白。Awarefy型の「白 → 極薄ティント → 締めの濃色 → アクセント」構成 */
+  --night:      #FFFFFF;   /* ページのベース面 */
+  --night-2:    #FFFFFF;   /* カード面（枠線で分ける） */
+  --night-3:    #F2F4FA;   /* 画像枠などの薄い面 */
+  --night-4:    #E9EDF7;
 
-  /* アクセント：サラのピンクは「面」ではなく「光」として置く（彩度を落とす） */
-  --pink:       #EC9BBC;
-  --pink-2:     #F6BCD2;
-  --pink-deep:  #9E4C67;   /* 明るい面に乗せる用（コントラスト確保） */
-  --violet:     #7E8FC7;   /* ブルーラベンダー＝空気の色 */
-  --violet-2:   #A6B2DC;
+  /* 締めの濃色：夜のインディゴ。最終CTAとフッターだけに使う */
+  --indigo:     #16203A;
+  --indigo-2:   #0F1728;
+
+  /* アクセント：サラのピンク。面で塗らず、文字・線・小さな面で効かせる */
+  --pink:       #E86C96;   /* 装飾・グラフィック用 */
+  --pink-2:     #C9436F;   /* 文字・ラベル用（白地で読める） */
+  --pink-deep:  #A8355A;   /* ボタンなど締め */
+  --pink-pale:  #FBEDF2;   /* 極薄の面 */
+
+  /* サブ：トワイライトのブルーラベンダー */
+  --violet:     #8E9BCB;
+  --violet-2:   #5B6798;   /* 文字用 */
+  --violet-pale:#EFF2F9;   /* 交互セクションのティント */
 
   /* テキスト */
-  --text:       #EDF0F8;
-  --text-2:     #B6BFD6;
-  --text-3:     #7D87A3;
-  --ink:        #16203A;   /* 明るい面に乗せる文字 */
-  --ink-2:      #4E5876;
+  --text:       #26293A;
+  --text-2:     #5A6070;
+  --text-3:     #6B7182;
+  --ink:        #26293A;
+  --ink-2:      #5A6070;
 
-  /* 明るい面（チャットUI・カード） */
+  /* チャットUIなどの面 */
   --paper:      #FFFFFF;
-  --paper-2:    #F2F4FA;
-  --paper-3:    #E1E6F2;
+  --paper-2:    #F4F6FC;
+  --paper-3:    #E3E7F2;
 
-  --line:       rgba(255,255,255,0.12);
-  --line-2:     rgba(255,255,255,0.07);
+  --line:       rgba(38,41,58,0.13);
+  --line-2:     rgba(38,41,58,0.07);
 
-  --outer:      #0A0F1C;   /* PC時、縦型カラムの外側 */
+  --outer:      #EBEDF3;   /* PC時、縦型カラムの外側 */
 
   --container:  420px;     /* スマホ縦型固定：PCでも広げない */
   --gutter:     20px;
@@ -88,7 +96,7 @@ table{ border-collapse:collapse; width:100%; }
 
 /* 明るい面のセクション（読ませるところ） */
 .section--light{
-  background:var(--paper-2);
+  background:var(--violet-pale);
   color:var(--ink);
 }
 .section--light .lead{ color:var(--ink-2); }
@@ -138,7 +146,7 @@ table{ border-collapse:collapse; width:100%; }
   line-height:1.8;
   color:var(--text-3);
 }
-.section--light .note-s{ color:#7B849C; }
+.section--light .note-s{ color:var(--text-3); }
 
 .center{ text-align:center; }
 
@@ -155,9 +163,9 @@ table{ border-collapse:collapse; width:100%; }
   font-size:16px;
   font-weight:700;
   line-height:1.4;
-  color:var(--ink);
-  background:linear-gradient(100deg, var(--pink-2) 0%, #CBD4EE 100%);
-  box-shadow:0 8px 24px rgba(236,155,188,0.20);
+  color:#fff;
+  background:linear-gradient(100deg, var(--pink-2) 0%, var(--pink-deep) 100%);
+  box-shadow:0 8px 22px rgba(201,67,111,0.22);
 }
 .btn__arrow{
   font-family:var(--ff-en);
@@ -167,21 +175,21 @@ table{ border-collapse:collapse; width:100%; }
 .btn--ghost{
   color:var(--text);
   background:transparent;
-  border:1.5px solid rgba(255,255,255,0.35);
+  border:1.5px solid rgba(38,41,58,0.26);
   box-shadow:none;
   font-size:15px;
   padding:15px 22px;
 }
 .section--light .btn--ghost{
   color:var(--ink);
-  border-color:rgba(22,32,58,0.26);
+  border-color:rgba(38,41,58,0.26);
 }
 .btn--sm{
   width:auto;
   display:inline-flex;
   padding:11px 20px;
   font-size:13.5px;
-  box-shadow:0 5px 14px rgba(236,155,188,0.20);
+  box-shadow:0 5px 14px rgba(201,67,111,0.20);
 }
 
 .badges{
@@ -197,8 +205,8 @@ table{ border-collapse:collapse; width:100%; }
   padding:6px 13px;
   border-radius:999px;
   color:var(--violet-2);
-  border:1px solid rgba(166,178,220,0.38);
-  background:rgba(166,178,220,0.08);
+  border:1px solid rgba(142,155,203,0.45);
+  background:rgba(142,155,203,0.09);
 }
 
 /* 画像プレースホルダー枠 */
@@ -214,7 +222,7 @@ table{ border-collapse:collapse; width:100%; }
    ------------------------------------------------------------ */
 .header{
   border-bottom:1px solid var(--line-2);
-  background:var(--night);
+  background:var(--paper);
 }
 .header__inner{
   display:flex;
@@ -253,9 +261,9 @@ table{ border-collapse:collapse; width:100%; }
    ------------------------------------------------------------ */
 .fv{
   background:
-    radial-gradient(120% 70% at 78% 10%, rgba(236,155,188,0.20) 0%, rgba(236,155,188,0) 58%),
-    radial-gradient(110% 60% at 10% 44%, rgba(126,143,199,0.22) 0%, rgba(126,143,199,0) 62%),
-    linear-gradient(180deg, #16213A 0%, var(--night) 100%);
+    radial-gradient(120% 60% at 82% 4%, rgba(232,108,150,0.13) 0%, rgba(232,108,150,0) 60%),
+    radial-gradient(110% 55% at 6% 22%, rgba(142,155,203,0.16) 0%, rgba(142,155,203,0) 62%),
+    var(--paper);
   padding:40px 0 52px;
 }
 .fv__copy{ margin-bottom:26px; }
@@ -271,7 +279,7 @@ table{ border-collapse:collapse; width:100%; }
 .fv__media{
   border-radius:24px;
   overflow:hidden;
-  box-shadow:0 20px 50px rgba(0,0,0,0.45);
+  box-shadow:0 18px 42px rgba(38,41,58,0.16);
 }
 .fv__chat{
   width:88%;
@@ -287,7 +295,7 @@ table{ border-collapse:collapse; width:100%; }
   background:var(--paper-2);
   border-radius:18px;
   padding:14px 13px 16px;
-  box-shadow:0 14px 34px rgba(0,0,0,0.35);
+  box-shadow:0 12px 28px rgba(38,41,58,0.13);
 }
 .chat--plain{ box-shadow:none; }
 .chat__head{
@@ -369,8 +377,8 @@ table{ border-collapse:collapse; width:100%; }
 .scene{
   border-radius:16px;
   overflow:hidden;
-  background:var(--night-2);
-  border:1px solid var(--line-2);
+  background:var(--paper);
+  border:1px solid var(--line);
 }
 .scene__body{ padding:13px 14px 16px; }
 .scene__ttl{
@@ -394,9 +402,9 @@ table{ border-collapse:collapse; width:100%; }
   font-size:16px;
   font-weight:700;
   line-height:1.7;
-  color:#fff;
-  background:linear-gradient(100deg, rgba(236,155,188,0.15) 0%, rgba(126,143,199,0.15) 100%);
-  border:1px solid rgba(246,188,210,0.28);
+  color:var(--ink);
+  background:linear-gradient(100deg, var(--pink-pale) 0%, var(--violet-pale) 100%);
+  border:1px solid rgba(201,67,111,0.18);
 }
 
 /* ------------------------------------------------------------
@@ -404,8 +412,8 @@ table{ border-collapse:collapse; width:100%; }
    ------------------------------------------------------------ */
 .sara{
   background:
-    radial-gradient(100% 55% at 50% 0%, rgba(236,155,188,0.14) 0%, rgba(236,155,188,0) 62%),
-    var(--night-2);
+    radial-gradient(100% 50% at 50% 0%, rgba(232,108,150,0.10) 0%, rgba(232,108,150,0) 62%),
+    var(--paper);
 }
 .sara__visual{ margin:22px 0; }
 .sara__cuts{
@@ -449,7 +457,7 @@ table{ border-collapse:collapse; width:100%; }
    ------------------------------------------------------------ */
 .cta-strip{
   padding:34px 0;
-  background:linear-gradient(100deg, #1A2545 0%, #262F55 100%);
+  background:linear-gradient(100deg, var(--pink-pale) 0%, var(--violet-pale) 100%);
 }
 .cta-strip__msg{
   font-family:var(--ff-round);
@@ -465,6 +473,7 @@ table{ border-collapse:collapse; width:100%; }
    ------------------------------------------------------------ */
 .compare{
   margin-top:24px;
+  background:var(--paper);
   font-size:12.5px;
   border-radius:14px;
   overflow:hidden;
@@ -482,12 +491,12 @@ table{ border-collapse:collapse; width:100%; }
   font-family:var(--ff-round);
   font-size:12px;
   font-weight:700;
-  background:rgba(255,255,255,0.05);
+  background:var(--violet-pale);
   color:var(--text-2);
 }
 .compare thead .is-airen{
-  color:#fff;
-  background:linear-gradient(120deg, rgba(236,155,188,0.24) 0%, rgba(126,143,199,0.24) 100%);
+  color:var(--pink-2);
+  background:linear-gradient(120deg, rgba(232,108,150,0.16) 0%, rgba(142,155,203,0.16) 100%);
 }
 .compare tbody th{
   width:26%;
@@ -497,9 +506,9 @@ table{ border-collapse:collapse; width:100%; }
 }
 .compare td{ color:var(--text-2); }
 .compare .is-airen{
-  color:#fff;
+  color:var(--ink);
   font-weight:700;
-  background:rgba(236,155,188,0.07);
+  background:rgba(232,108,150,0.06);
 }
 .compare tr:last-child th,
 .compare tr:last-child td{ border-bottom:0; }
@@ -559,16 +568,16 @@ table{ border-collapse:collapse; width:100%; }
 .plan{
   padding:22px 20px;
   border-radius:18px;
-  background:var(--night-2);
+  background:var(--paper);
   border:1px solid var(--line);
 }
 .plan--reco{
-  border:1.5px solid var(--pink);
-  background:linear-gradient(170deg, rgba(236,155,188,0.11) 0%, rgba(126,143,199,0.09) 100%);
+  border:1.5px solid var(--pink-2);
+  background:linear-gradient(170deg, var(--pink-pale) 0%, #FFFFFF 70%);
 }
 .plan--free{
-  background:var(--paper);
-  border:1px solid var(--paper-3);
+  background:var(--violet-pale);
+  border:1px solid var(--line);
   color:var(--ink);
 }
 .plan__ribbon{
@@ -601,7 +610,7 @@ table{ border-collapse:collapse; width:100%; }
   font-weight:500;
   color:var(--text-3);
 }
-.plan--free .plan__price small{ color:#7B849C; }
+.plan--free .plan__price small{ color:var(--text-3); }
 .plan__desc{
   font-size:12.5px;
   line-height:1.8;
@@ -627,7 +636,7 @@ table{ border-collapse:collapse; width:100%; }
   height:16px;
   margin-top:4px;
   border-radius:50%;
-  background:rgba(236,155,188,0.20);
+  background:rgba(232,108,150,0.14);
   color:var(--pink-2);
   font-size:9px;
   line-height:16px;
@@ -635,7 +644,7 @@ table{ border-collapse:collapse; width:100%; }
   font-weight:700;
 }
 .plan--free .plan__check{
-  background:rgba(158,76,103,0.13);
+  background:rgba(201,67,111,0.12);
   color:var(--pink-deep);
 }
 
@@ -653,8 +662,8 @@ table{ border-collapse:collapse; width:100%; }
   align-items:flex-start;
   padding:15px 16px;
   border-radius:14px;
-  background:var(--night-2);
-  border:1px solid var(--line-2);
+  background:var(--paper);
+  border:1px solid var(--line);
 }
 .day-card__label{
   flex:0 0 58px;
@@ -689,7 +698,7 @@ table{ border-collapse:collapse; width:100%; }
 .safety__item{
   padding:16px 17px;
   border-radius:14px;
-  background:var(--night-2);
+  background:var(--violet-pale);
   border:1px solid var(--line-2);
 }
 .safety__ttl{
@@ -711,8 +720,8 @@ table{ border-collapse:collapse; width:100%; }
   font-size:12px;
   line-height:1.8;
   color:var(--violet-2);
-  background:rgba(166,178,220,0.08);
-  border:1px solid rgba(166,178,220,0.30);
+  background:rgba(142,155,203,0.10);
+  border:1px solid rgba(142,155,203,0.40);
 }
 
 /* ------------------------------------------------------------
@@ -722,7 +731,7 @@ table{ border-collapse:collapse; width:100%; }
   margin-top:22px;
   border-radius:14px;
   overflow:hidden;
-  border:1px solid var(--paper-3);
+  border:1px solid var(--line);
   background:var(--paper);
 }
 .faq__item{ border-bottom:1px solid var(--paper-3); }
@@ -759,8 +768,9 @@ table{ border-collapse:collapse; width:100%; }
   padding:60px 0 64px;
   text-align:center;
   background:
-    radial-gradient(90% 60% at 50% 0%, rgba(236,155,188,0.20) 0%, rgba(236,155,188,0) 62%),
-    linear-gradient(180deg, #18223C 0%, var(--night) 100%);
+    radial-gradient(90% 60% at 50% 0%, rgba(232,108,150,0.22) 0%, rgba(232,108,150,0) 62%),
+    linear-gradient(180deg, #1B2540 0%, var(--indigo) 100%);
+  color:#fff;
 }
 .final__media{
   width:150px;
@@ -774,7 +784,7 @@ table{ border-collapse:collapse; width:100%; }
    ------------------------------------------------------------ */
 .footer{
   padding:36px 0 34px;
-  background:#0B1120;
+  background:var(--indigo-2);
   border-top:1px solid var(--line-2);
 }
 .footer__logo{
@@ -822,7 +832,7 @@ table{ border-collapse:collapse; width:100%; }
   margin-inline:auto;
   z-index:60;
   padding:10px var(--gutter) calc(10px + env(safe-area-inset-bottom));
-  background:rgba(16,24,41,0.95);
+  background:rgba(255,255,255,0.96);
   border-top:1px solid var(--line);
 }
 .fab__inner{
@@ -846,6 +856,20 @@ table{ border-collapse:collapse; width:100%; }
 @media (min-width:520px){
   body{ background:var(--outer); }
   .page{
-    box-shadow:0 0 0 1px rgba(255,255,255,0.05), 0 24px 80px rgba(0,0,0,0.55);
+    box-shadow:0 0 0 1px rgba(38,41,58,0.08), 0 18px 60px rgba(38,41,58,0.14);
   }
 }
+
+/* ------------------------------------------------------------
+   濃色面（最終CTA・フッター）の文字色
+   ------------------------------------------------------------ */
+.final .h2{ color:#fff; }
+.final .lead{ color:rgba(255,255,255,0.82); }
+.final .note-s{ color:rgba(255,255,255,0.55); }
+.final .media{ background:rgba(255,255,255,0.08); }
+
+.footer__logo{ color:#fff; }
+.footer__desc,
+.footer__copy{ color:rgba(255,255,255,0.50); }
+.footer__links{ color:rgba(255,255,255,0.86); }
+.footer__links a{ border-bottom-color:rgba(255,255,255,0.22); }
